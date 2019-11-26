@@ -1,69 +1,67 @@
 <div *ngIf='resultFound()'>
-
+    <br>
     <h1 class="text-center text-primary font-weight-bold">{{'5 day / 3 hour forecast data' | translate}}</h1>
     <br>
-    <div *ngFor='let element of forecast.list'>
-        <table class="table table-dark table-responsive table-striped">
+    <table class="table table-dark table-bordered table-responsive table-striped rounded-lg  mt-2 mt-md-0" *ngFor='let element of forecast.list'>
 
-            <thead class="text-center container h1 text-info">
-                <tr>
-                    <td class="container">{{'Time' | translate}}: {{element.dt*1000 | date:'d,M ,y, h:mm:ss a'}}</td>
-                    <td class="container">{{forecast?.city.name}},{{forecast?.city.country}}</td>
-                </tr>
-            </thead>
+        <thead class="text-center h1 text-info mt-2 mt-md-0">
+            <tr>
+                <td class="container">{{'Time' | translate}}: {{element.dt*1000 | date:'d,M ,y, h:mm:ss a'}}</td>
+                <td class="container">{{forecast?.city.name}},{{forecast?.city.country}}</td>
+            </tr>
+        </thead>
 
-            <tbody class="text-center h5">
-                <tr *ngFor='let w of element.weather'>
-                    <td>{{'Description' | translate}}</td>
-                    <td class="text-danger h3 font-weight-bold">
-                        {{w?.description}}
-                        <div><img class="bg-info rounded-circle" src="http://openweathermap.org/img/wn/{{w?.icon}}@2x.png" alt="Weather icon"></div>
-                    </td>
-                </tr>
-                <tr>
-                    <td>{{'Temperature' | translate}}</td>
-                    <td>{{element.main?.temp - 273.15 | number}}<sup>o</sup>C</td>
-                </tr>
-                <tr>
-                    <td>{{'Temperature Min' | translate}}</td>
-                    <td>{{element.main?.temp_min - 273.15 | number}}<sup>o</sup>C</td>
-                </tr>
-                <tr>
-                    <td>{{'Temperature Max' | translate}}</td>
-                    <td>{{element.main?.temp_max - 273.15 | number}}<sup>o</sup>C</td>
-                </tr>
-                <tr>
-                    <td>{{'Pressure' | translate}}</td>
-                    <td>{{element.main?.pressure | number:'1.0-0'}}hpa</td>
-                </tr>
-                <tr>
-                    <td>{{'Sea Level' | translate}}</td>
-                    <td>{{element.main?.sea_level | number:'1.0-0'}}m</td>
-                </tr>
-                <tr>
-                    <td>{{'Ground Level' | translate}}</td>
-                    <td>{{element.main?.grnd_level | number:'1.0-0'}}m</td>
-                </tr>
-                <tr>
-                    <td>{{'Humidity' | translate}}</td>
-                    <td> {{element.main?.humidity | number:'1.0-0'}}%</td>
-                </tr>
-                <tr>
-                    <td>{{'Wind Speed' | translate}}</td>
-                    <td>{{element.wind?.speed }}{{element.wind?.name}}</td>
-                </tr>
-                <tr>
-                    <td>{{'Wind Direction' | translate}}</td>
-                    <td>{{element.wind?.deg }}<sup>o</sup></td>
-                </tr>
-            </tbody>
-
-            <br class="container">
-        </table>
-    </div>
+        <tbody class="text-center h5  mt-2 mt-md-0">
+            <tr *ngFor='let w of element.weather'>
+                <td>{{'Description' | translate}}</td>
+                <td class="text-danger h3 font-weight-bold">
+                    {{w?.description}}
+                    <img class="bg-info rounded-circle" src="http://openweathermap.org/img/wn/{{w?.icon}}@2x.png" alt="Weather icon">
+                </td>
+            </tr>
+            <tr>
+                <td>{{'Temperature' | translate}}</td>
+                <td>{{element.main?.temp - 273.15 | number}}<sup>o</sup>C</td>
+            </tr>
+            <tr>
+                <td>{{'Temperature Min' | translate}}</td>
+                <td>{{element.main?.temp_min - 273.15 | number}}<sup>o</sup>C</td>
+            </tr>
+            <tr>
+                <td>{{'Temperature Max' | translate}}</td>
+                <td>{{element.main?.temp_max - 273.15 | number}}<sup>o</sup>C</td>
+            </tr>
+            <tr>
+                <td>{{'Pressure' | translate}}</td>
+                <td>{{element.main?.pressure | number:'1.0-0'}}hpa</td>
+            </tr>
+            <tr>
+                <td>{{'Sea Level' | translate}}</td>
+                <td>{{element.main?.sea_level | number:'1.0-0'}}m</td>
+            </tr>
+            <tr>
+                <td>{{'Ground Level' | translate}}</td>
+                <td>{{element.main?.grnd_level | number:'1.0-0'}}m</td>
+            </tr>
+            <tr>
+                <td>{{'Humidity' | translate}}</td>
+                <td> {{element.main?.humidity | number:'1.0-0'}}%</td>
+            </tr>
+            <tr>
+                <td>{{'Wind Speed' | translate}}</td>
+                <td>{{element.wind?.speed }}{{element.wind?.name}}</td>
+            </tr>
+            <tr>
+                <td>{{'Wind Direction' | translate}}</td>
+                <td>{{element.wind?.deg }}<sup>o</sup></td>
+            </tr>
+        </tbody>
+        <br>
+    </table>
+    <br>
 </div>
 
 <br>
 <div *ngIf='!resultFound()'>
-    <h1 class="container text-primary text-center">{{'Failed to get Weather Or City not found' | translate}}</h1>
+    <h1 class=" text-primary text-center">{{'Failed to get Weather Or City not found' | translate}}</h1>
 </div>

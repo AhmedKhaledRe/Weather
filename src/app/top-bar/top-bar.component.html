@@ -1,10 +1,10 @@
-<nav class=" container navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+<nav class=" navbar navbar-expand-md navbar-dark bg-dark navbar-fixed-top">
 
     <a class="navbar-brand text-white  badge-primary p-2 rounded">Weather App</a>
 
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="true" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+      <span class="navbar-toggler-icon"></span>
+    </button>
 
     <div class="navbar-collapse collapse show" id="navbarCollapse" style>
 
@@ -30,8 +30,8 @@
                 <label class="input-group-text" for="inputGroupSelect01">{{'Languages' | translate}}</label>
             </div>
             <select class="custom-select" id="inputGroupSelect01" #langSelect (change)="changeLang(langSelect.value)">
-              <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
-          </select>
+            <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
+        </select>
         </div>
 
     </div>

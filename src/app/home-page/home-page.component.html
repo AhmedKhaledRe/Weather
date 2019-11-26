@@ -1,34 +1,30 @@
-<app-top-bar class="container"></app-top-bar>
+<app-top-bar></app-top-bar>
 
-<div class="p-5 container">
+<div class="p-3" *ngIf='loc'>
 
-    <div class="p-5 container" *ngIf='loc'>
+    <mat-tab-group mat-tab-group>
 
-        <mat-tab-group mat-tab-group class="p-5 container ">
+        <mat-tab mat-tab>
 
-            <mat-tab mat-tab>
+            <ng-template mat-tab-label>{{'Current Weather' | translate}}</ng-template>
 
-                <ng-template mat-tab-label>{{'Current Weather' | translate}}</ng-template>
+            <app-current-weather></app-current-weather>
 
-                <app-current-weather class="container"></app-current-weather>
-
-            </mat-tab>
+        </mat-tab>
 
 
-            <mat-tab mat-tab>
+        <mat-tab mat-tab>
 
-                <ng-template mat-tab-label>{{'Forecast' | translate}}</ng-template>
+            <ng-template mat-tab-label>{{'Forecast' | translate}}</ng-template>
 
-                <app-forecast class="container"></app-forecast>
+            <app-forecast></app-forecast>
 
-            </mat-tab>
+        </mat-tab>
 
-        </mat-tab-group>
+    </mat-tab-group>
 
-    </div>
+</div>
 
-    <div *ngIf='!loc' class="p-5 text-info container">
-        <h1 class=" border-dark border text-center p-5 jumbotron">{{'Enter location to find weather info' | translate}}</h1>
-    </div>
-
+<div *ngIf='!loc' class="p-3 text-info">
+    <h1 class=" border-dark border text-center p-5 jumbotron">{{'Enter location to find weather info' | translate}}</h1>
 </div>
