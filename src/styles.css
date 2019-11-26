@@ -1,0 +1,20 @@
+@import '@angular/material/prebuilt-themes/purple-green.css';
+body {
+    margin: 0px;
+    font-family: 'Roboto', sans-serif;
+}
+
+.center {
+    text-align: center;
+}
+
+table {
+    width: 100%
+}
+
+.alert {
+    width: auto;
+    padding: auto;
+    margin: auto;
+    display: inline-block;
+}

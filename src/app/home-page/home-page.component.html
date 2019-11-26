@@ -1,0 +1,35 @@
+<app-top-bar class="container"></app-top-bar>
+
+<div class="p-5 container">
+
+    <div class=" d-flex justify-content-between border border-dark container" *ngIf='loc'>
+
+        <mat-tab-group mat-tab-group class="container  d-flex justify-content-between">
+
+
+            <mat-tab mat-tab class=" d-flex justify-content-between">
+
+                <ng-template mat-tab-label class=" d-flex justify-content-between">{{'Current Weather' | translate}}</ng-template>
+
+                <app-current-weather class="container"></app-current-weather>
+
+            </mat-tab>
+
+
+            <mat-tab mat-tab class=" d-flex justify-content-between">
+
+                <ng-template mat-tab-label class=" d-flex justify-content-between">{{'Forecast' | translate}}</ng-template>
+
+                <app-forecast class="container"></app-forecast>
+
+            </mat-tab>
+
+        </mat-tab-group>
+
+    </div>
+
+    <div *ngIf='!loc' class="p-5 text-info container">
+        <h1 class=" border-dark border text-center p-5 jumbotron">{{'Enter location to find weather info' | translate}}</h1>
+    </div>
+
+</div>
