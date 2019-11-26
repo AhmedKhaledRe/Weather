@@ -1,34 +1,38 @@
 <div *ngIf='resultFound()'>
-    <h1 class="text-center text-primary">{{'current weather data' | translate}}</h1>
-    <table class="table-bordered table-dark table-responsive mat-table table-striped">
-        <th class="text-center container h1 border-5">
-            <span class="container">{{'Time' | translate}} : {{currentWeather.dt*1000 | date:'d,M ,y, h:mm:ss a'}}</span>
-            <span class="container">{{currentWeather?.name}},{{currentWeather?.sys.country}}</span>
-        </th>
-        <tbody class="text-center">
+
+    <h1 class="text-center text-primary font-weight-bold">{{'current weather data' | translate}}</h1>
+    <br>
+    <table class="table table-bordered table-dark table-responsive table-striped">
+
+        <thead class="text-center container h1 text-info">
+            <tr>
+                <td class="container">{{'Time' | translate}}: {{currentWeather.dt*1000 | date:'d,M ,y, h:mm:ss a'}}</td>
+                <td class="container">{{currentWeather?.name}},{{currentWeather?.sys.country}}</td>
+            </tr>
+        </thead>
+
+        <tbody class="text-center h5">
             <tr *ngFor='let w of currentWeather.weather'>
-                <td>{{'Description' | translate}}:</td>
-                <td>
-                    <div class="inline">
-                        {{w?.description}}
-                        <img id="wicon" src="http://openweathermap.org/img/wn/{{w?.icon}}@2x.png" alt="Weather icon">
-                    </div>
+                <td>{{'Description' | translate}}</td>
+                <td class="text-danger h3 font-weight-bold">
+                    {{w?.description}}
+                    <img class="bg-info rounded-circle" src="http://openweathermap.org/img/wn/{{w?.icon}}@2x.png" alt="Weather icon">
                 </td>
             </tr>
             <tr>
-                <td>{{'Current Temperature' | translate}}:</td>
+                <td>{{'Current Temperature' | translate}}</td>
                 <td>{{currentWeather.main?.temp - 273.15 | number}}<sup>o</sup>C</td>
             </tr>
             <tr>
-                <td>{{'Temperature Min' | translate}}:</td>
+                <td>{{'Temperature Min' | translate}}</td>
                 <td>{{currentWeather.main?.temp_min - 273.15 | number}}<sup>o</sup>C</td>
             </tr>
             <tr>
-                <td>{{'Temperature Max' | translate}}:</td>
+                <td>{{'Temperature Max' | translate}}</td>
                 <td>{{currentWeather.main?.temp_max - 273.15 | number}}<sup>o</sup>C</td>
             </tr>
             <tr>
-                <td>{{'Clouds' | translate}}:</td>
+                <td>{{'Clouds' | translate}}</td>
                 <td>{{currentWeather.clouds?.all}}%</td>
             </tr>
             <tr>
@@ -44,13 +48,14 @@
                 <td>{{currentWeather.visibility}}m</td>
             </tr>
             <tr>
-                <td>{{'Location Searched' | translate}}:</td>
+                <td>{{'Location Searched' | translate}}</td>
                 <td>{{ currentWeather?.name }},{{ currentWeather?.sys.country }}.</td>
             </tr>
         </tbody>
+
     </table>
 </div>
-
-<div class="center" *ngIf='!resultFound()'>
-    <h1>{{'Failed to get Weather Or City not found' | translate}}</h1>
+<br>
+<div *ngIf='!resultFound()'>
+    <h1 class="text-center container text-primary">{{'Failed to get Weather Or City not found' | translate}}</h1>
 </div>

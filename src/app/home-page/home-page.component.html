@@ -2,23 +2,22 @@
 
 <div class="p-5 container">
 
-    <div class=" d-flex justify-content-between border border-dark container" *ngIf='loc'>
+    <div class="p-5 container" *ngIf='loc'>
 
-        <mat-tab-group mat-tab-group class="container  d-flex justify-content-between">
+        <mat-tab-group mat-tab-group class="p-5 container ">
 
+            <mat-tab mat-tab>
 
-            <mat-tab mat-tab class=" d-flex justify-content-between">
-
-                <ng-template mat-tab-label class=" d-flex justify-content-between">{{'Current Weather' | translate}}</ng-template>
+                <ng-template mat-tab-label>{{'Current Weather' | translate}}</ng-template>
 
                 <app-current-weather class="container"></app-current-weather>
 
             </mat-tab>
 
 
-            <mat-tab mat-tab class=" d-flex justify-content-between">
+            <mat-tab mat-tab>
 
-                <ng-template mat-tab-label class=" d-flex justify-content-between">{{'Forecast' | translate}}</ng-template>
+                <ng-template mat-tab-label>{{'Forecast' | translate}}</ng-template>
 
                 <app-forecast class="container"></app-forecast>
 

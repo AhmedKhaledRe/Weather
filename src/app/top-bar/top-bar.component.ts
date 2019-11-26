@@ -16,6 +16,7 @@ export class TopBarComponent {
   found_data:boolean;
 
   constructor(private store: Store<any>,public translate: TranslateService) {
+    //translation process
     translate.addLangs(['en', 'ar', 'bg', 'ca','de','cz','el','tr','zh_tw','zh_cn','es','it','fr','ru','ja']);
     if (localStorage.getItem('locale')) {
       const browserLang = localStorage.getItem('locale');
@@ -27,6 +28,7 @@ export class TopBarComponent {
     }
   }
 
+  //function on change languges on page
   changeLang(language: string) {
     localStorage.setItem('locale', language);
     this.translate.use(language);
