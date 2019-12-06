@@ -14,6 +14,7 @@ export class TopBarComponent {
   loc: string;
   date: Date;
   found_data:boolean;
+  lan:string;
 
   constructor(private store: Store<any>,public translate: TranslateService) {
     //translation process
@@ -26,12 +27,15 @@ export class TopBarComponent {
       localStorage.setItem('locale', 'en');
       translate.setDefaultLang('en');
     }
+    this.lan=localStorage.getItem('locale');
   }
 
   //function on change languges on page
   changeLang(language: string) {
     localStorage.setItem('locale', language);
     this.translate.use(language);
+    //this.lan=localStorage.getItem('locale');
+    this.lan=language;
   }
 
    search(searchForm: NgForm) {

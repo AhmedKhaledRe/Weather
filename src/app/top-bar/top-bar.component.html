@@ -10,7 +10,7 @@
 
         <ul class="navbar-nav m-auto">
             <li class="nav-item">
-                <div class="form-inline alert alert-info text-info" *ngIf='found_data'>{{'Last updated' | translate}} {{date | amTimeAgo }}</div>
+                <div class="form-inline alert alert-info text-info" *ngIf='found_data'>{{'Last updated' | translate}} {{date | amLocale:""+lan+"" | amTimeAgo }}</div>
             </li>
         </ul>
 
